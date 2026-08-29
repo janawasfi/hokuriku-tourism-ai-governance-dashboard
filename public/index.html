@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FTAS Executive Dashboard — Fukui Tourism Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+<style>
+  :root{
+    --ai-deep:#0F2B46;      /* deep indigo */
+    --ai-mid:#1C4A73;       /* mid indigo */
+    --ai-line:#2E6592;      /* line indigo */
+    --washi:#F7F3EA;        /* warm paper */
+    --washi-card:#FFFDF8;
+    --ink:#12202C;
+    --ink-soft:#4A5C6A;
+    --torii:#B5432E;        /* vermillion */
+    --torii-soft:#F3E1DB;
+    --gold:#C79A46;
+    --seafoam:#3E8E86;
+    --seafoam-soft:#E0EFEC;
+    --amber:#C08A2E;
+    --amber-soft:#F6EBD6;
+    --crit:#9C2E2E;
+    --crit-soft:#F5DEDC;
+    --hairline: rgba(15,43,70,0.12);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--washi);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .font-display{ font-family:'Shippori Mincho', serif; }
+  .font-mono{ font-family:'JetBrains Mono', monospace; }
+
+  /* ---------- wave divider signature element ---------- */
+  .wave-divider{
+    width:100%;
+    height:28px;
+    display:block;
+  }
+
+  /* ---------- header ---------- */
+  header.hero{
+    background:
+      linear-gradient(180deg, var(--ai-deep) 0%, var(--ai-mid) 100%);
+    color:var(--washi);
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero .grain{
+    position:absolute; inset:0;
+    background-image: radial-gradient(circle at 15% 25%, rgba(255,255,255,0.05) 0, transparent 40%),
+                       radial-gradient(circle at 85% 75%, rgba(255,255,255,0.04) 0, transparent 45%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-size:.68rem;
+    color:var(--gold);
+    font-weight:600;
+  }
+  .status-pill{
+    display:inline-flex; align-items:center; gap:.4rem;
+    padding:.3rem .7rem;
+    border-radius:999px;
+    font-size:.72rem;
+    font-weight:600;
+    border:1px solid rgba(247,243,234,0.25);
+    color:var(--washi);
+  }
+  .status-dot{ width:6px;height:6px;border-radius:999px;background:#7BD389; }
+
+  /* ---------- section shell ---------- */
+  section.panel{
+    max-width:1180px;
+    margin:0 auto;
+    padding:2.6rem 1.5rem;
+  }
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    margin-bottom:1.4rem;
+    border-bottom:1px solid var(--hairline);
+    padding-bottom:.9rem;
+  }
+  .section-title{
+    font-family:'Shippori Mincho', serif;
+    font-size:1.55rem;
+    font-weight:700;
+    color:var(--ai-deep);
+  }
+  .section-sub{
+    font-size:.82rem;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- KPI cards ---------- */
+  .kpi-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--hairline);
+    border:1px solid var(--hairline);
+  }
+  .kpi-card{
+    background:var(--washi-card);
+    padding:1.4rem 1.3rem;
+    position:relative;
+  }
+  .kpi-label{
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:.5rem;
+  }
+  .kpi-value{
+    font-family:'JetBrains Mono',monospace;
+    font-size:1.9rem;
+    font-weight:700;
+    color:var(--ai-deep);
+    line-height:1.1;
+  }
+  .kpi-delta{
+    margin-top:.45rem;
+    font-size:.78rem;
+    font-weight:600;
+  }
+  .kpi-delta.up{ color:var(--seafoam); }
+  .kpi-delta.down{ color:var(--torii); }
+
+  /* ---------- badges ---------- */
+  .badge{
+    display:inline-flex; align-items:center; gap:.35rem;
+    padding:.28rem .62rem;
+    border-radius:5px;
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.02em;
+    font-family:'JetBrains Mono',monospace;
+  }
+  .badge-HOT{ background:var(--torii-soft); color:var(--torii); }
+  .badge-OK{ background:var(--seafoam-soft); color:var(--seafoam); }
+  .badge-WARN{ background:var(--amber-soft); color:var(--amber); }
+  .badge-CRIT{ background:var(--crit-soft); color:var(--crit); }
+
+  /* ---------- weather strip ---------- */
+  .weather-scroll{
+    display:flex; gap:.7rem; overflow-x:auto; padding-bottom:.4rem;
+    scrollbar-width:thin;
+  }
+  .weather-day{
+    min-width:108px;
+    background:var(--washi-card);
+    border:1px solid var(--hairline);
+    border-radius:8px;
+    padding:.8rem .6rem;
+    text-align:center;
+    flex-shrink:0;
+  }
+  .weather-day.rain-risk{
+    border-color:var(--torii);
+    box-shadow: inset 0 0 0 1px var(--torii);
+  }
+  .weather-date{ font-size:.68rem; color:var(--ink-soft); font-family:'JetBrains Mono',monospace; }
+  .weather-desc{ font-size:.72rem; margin:.5rem 0 .35rem; color:var(--ink); min-height:2.4em; }
+  .weather-pop{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.95rem; }
+  .weather-pop.risk{ color:var(--torii); }
+  .weather-pop.safe{ color:var(--ai-mid); }
+
+  /* ---------- chart card ---------- */
+  .chart-card{
+    background:var(--washi-card);
+    border:1px solid var(--hairline);
+    border-radius:10px;
+    padding:1.4rem;
+  }
+
+  /* ---------- table ---------- */
+  table.pacing{ width:100%; border-collapse:collapse; font-size:.86rem; }
+  table.pacing thead th{
+    text-align:left;
+    font-size:.68rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    padding:.55rem .7rem;
+    border-bottom:1px solid var(--hairline);
+  }
+  table.pacing tbody td{
+    padding:.6rem .7rem;
+    border-bottom:1px solid var(--hairline);
+    font-family:'JetBrains Mono',monospace;
+  }
+  table.pacing tbody tr:hover{ background:rgba(15,43,70,0.03); }
+
+  /* ---------- nudges ---------- */
+  .nudge-card{
+    background:var(--washi-card);
+    border:1px solid var(--hairline);
+    border-left:3px solid var(--gold);
+    border-radius:6px;
+    padding:.9rem 1.1rem;
+    font-size:.86rem;
+    margin-bottom:.6rem;
+  }
+  .nudge-card.weather{ border-left-color:var(--ai-mid); }
+  .nudge-card.demand{ border-left-color:var(--torii); }
+  .nudge-type{
+    font-size:.65rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--ink-soft);
+    margin-bottom:.25rem;
+  }
+
+  /* ---------- export hub ---------- */
+  .export-btn{
+    display:inline-flex; align-items:center; gap:.5rem;
+    background:var(--ai-deep);
+    color:var(--washi);
+    border:none;
+    padding:.65rem 1.2rem;
+    border-radius:6px;
+    font-size:.85rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+  .export-btn:hover{ background:var(--ai-mid); }
+  .export-btn.secondary{
+    background:transparent;
+    color:var(--ai-deep);
+    border:1px solid var(--ai-deep);
+  }
+  .export-btn.secondary:hover{ background:rgba(15,43,70,0.06); }
+
+  footer.site{
+    background:var(--ai-deep);
+    color:rgba(247,243,234,0.6);
+    text-align:center;
+    padding:1.6rem 1rem;
+    font-size:.75rem;
+  }
+
+  @media (max-width: 860px){
+    .kpi-grid{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width: 560px){
+    .kpi-grid{ grid-template-columns:1fr; }
+    .section-title{ font-size:1.25rem; }
+  }
+
+  @media print{
+    header.hero{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    #export-hub{ display:none; }
+    body{ background:white; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="grain"></div>
+  <div style="max-width:1180px;margin:0 auto;padding:2.4rem 1.5rem 2.8rem;position:relative;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <div class="eyebrow">福井県観光データ分析システム · Fukui Tourism Analytics System</div>
+        <h1 class="font-display" style="font-size:2.1rem;margin:.5rem 0 .3rem;">FTAS Executive Dashboard</h1>
+        <p style="color:rgba(247,243,234,0.75);font-size:.92rem;max-width:36rem;">
+          Operational demand intelligence for DMOs, hotel operators, and municipal planners across the Reihoku and Reinan corridors.
+        </p>
+      </div>
+      <div style="text-align:right;">
+        <span class="status-pill"><span class="status-dot"></span> Live pipeline</span>
+        <div id="generated-at" style="margin-top:.6rem;font-size:.72rem;color:rgba(247,243,234,0.55);font-family:'JetBrains Mono',monospace;"></div>
+      </div>
+    </div>
+  </div>
+  <svg class="wave-divider" viewBox="0 0 1200 28" preserveAspectRatio="none">
+    <path d="M0,14 C150,28 350,0 600,14 C850,28 1050,0 1200,14 L1200,28 L0,28 Z" fill="#F7F3EA"/>
+  </svg>
+</header>
+
+<!-- SECTION 1 — Executive Summary -->
+<section class="panel">
+  <div class="section-head">
+    <div>
+      <div class="section-title">Executive Summary</div>
+    </div>
+    <div class="section-sub" id="summary-sub"></div>
+  </div>
+  <div class="kpi-grid" id="kpi-grid"></div>
+</section>
+
+<!-- SECTION 2 — Weather Strip -->
+<section class="panel" style="padding-top:0;">
+  <div class="section-head">
+    <div>
+      <div class="section-title">14-Day Weather &amp; Pacing Strip</div>
+    </div>
+    <div class="section-sub">Rain risk ≥ 40% outlined in vermillion</div>
+  </div>
+  <div class="weather-scroll" id="weather-strip"></div>
+</section>
+
+<!-- SECTION 3 — Demand Forecast -->
+<section class="panel" style="padding-top:0;">
+  <div class="section-head">
+    <div>
+      <div class="section-title">Actual vs. Model Forecast</div>
+    </div>
+    <div class="section-sub">Last 60 days · Random Forest</div>
+  </div>
+  <div class="chart-card">
+    <canvas id="demandChart" height="90"></canvas>
+  </div>
+</section>
+
+<!-- SECTION 4 — Weekly Pacing Table -->
+<section class="panel" style="padding-top:0;">
+  <div class="section-head">
+    <div>
+      <div class="section-title">Day-by-Day Pacing</div>
+    </div>
+    <div class="section-sub">Achievement rate = actual ÷ forecast</div>
+  </div>
+  <div class="chart-card" style="padding:0;overflow-x:auto;">
+    <table class="pacing">
+      <thead>
+        <tr><th>Date</th><th>Actual</th><th>Forecast</th><th>Rate</th><th>Status</th></tr>
+      </thead>
+      <tbody id="pacing-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 5 — Nudges -->
+<section class="panel" style="padding-top:0;">
+  <div class="section-head">
+    <div>
+      <div class="section-title">Governance &amp; Vendor Nudges</div>
+    </div>
+  </div>
+  <div id="nudges-list"></div>
+  <div id="nudges-empty" style="display:none;color:var(--ink-soft);font-size:.86rem;">No active recommendations — pacing and weather are within normal range.</div>
+</section>
+
+<!-- SECTION 6 — Export Hub -->
+<section class="panel" id="export-hub" style="padding-top:0;">
+  <div class="section-head">
+    <div>
+      <div class="section-title">Report Export Hub</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:.8rem;flex-wrap:wrap;">
+    <button class="export-btn" onclick="window.print()">↓ Export PDF Summary</button>
+    <button class="export-btn secondary" onclick="exportPPTX()">↓ Export PPTX Deck</button>
+  </div>
+</section>
+
+<footer class="site">
+  Fukui Tourism Analytics System — Distributed Human Data Engine · Data refreshed on load
+</footer>
+
+<script>
+let DASHBOARD_DATA = null;
+
+async function loadDashboardData(){
+  try{
+    const res = await fetch('data/dashboard_data.json');
+    const data = await res.json();
+    DASHBOARD_DATA = data;
+    renderAll(data);
+  }catch(err){
+    console.error('Failed to load dashboard data:', err);
+    document.querySelector('.panel').insertAdjacentHTML('afterbegin',
+      '<p style="color:#9C2E2E;">Could not load data/dashboard_data.json — make sure this file is served alongside index.html.</p>');
+  }
+}
+
+function badgeLabel(b){
+  return {HOT:'Superb', OK:'Strong', WARN:'Warning', CRIT:'Critical'}[b] || b;
+}
+
+function renderAll(data){
+  // header timestamp
+  const gen = document.getElementById('generated-at');
+  if(data.generated_at){
+    gen.textContent = 'Generated ' + new Date(data.generated_at).toLocaleString('en-GB', {dateStyle:'medium', timeStyle:'short'});
+  }
+
+  renderSummary(data.summary || {});
+  renderWeather(data.weather_strip || []);
+  renderChart(data.demand_forecast || []);
+  renderPacing(data.weekly_pacing || []);
+  renderNudges(data.nudges || []);
+}
+
+function renderSummary(summary){
+  const p30 = summary.past_30_day || {};
+  const week = summary.this_week_pacing || {};
+  const grid = document.getElementById('kpi-grid');
+
+  const yoy = p30.yoy_pct;
+  const yoyUp = yoy !== null && yoy !== undefined && yoy >= 0;
+  const yoyText = (yoy === null || yoy === undefined) ? '—' : (yoyUp ? '+' : '') + yoy + '%';
+
+  grid.innerHTML = `
+    <div class="kpi-card">
+      <div class="kpi-label">Past 30 Days</div>
+      <div class="kpi-value">${fmtNum(p30.current_total)}</div>
+      <div class="kpi-delta ${yoyUp ? 'up':'down'}">${yoyText} YoY</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Same Period Last Year</div>
+      <div class="kpi-value">${fmtNum(p30.previous_year_total)}</div>
+      <div class="kpi-delta" style="color:var(--ink-soft);">baseline</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Net Difference</div>
+      <div class="kpi-value">${p30.diff >= 0 ? '+' : ''}${fmtNum(p30.diff)}</div>
+      <div class="kpi-delta" style="color:var(--ink-soft);">visitors vs. last year</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">This Week Pacing</div>
+      <div class="kpi-value" style="font-size:1.35rem;">${week.rate !== undefined ? (week.rate*100).toFixed(0)+'%' : '—'}</div>
+      <div style="margin-top:.5rem;">${week.badge ? `<span class="badge badge-${week.badge}">${badgeLabel(week.badge)}</span>` : ''}</div>
+    </div>
+  `;
+}
+
+function renderWeather(days){
+  const el = document.getElementById('weather-strip');
+  if(!days.length){
+    el.innerHTML = '<p style="color:var(--ink-soft);font-size:.85rem;">Weather forecast unavailable.</p>';
+    return;
+  }
+  el.innerHTML = days.map(d => `
+    <div class="weather-day ${d.rain_risk ? 'rain-risk':''}">
+      <div class="weather-date">${fmtShortDate(d.date)}</div>
+      <div class="weather-desc">${d.weather || '—'}</div>
+      <div class="weather-pop ${d.rain_risk ? 'risk':'safe'}">${d.precipitation_pct !== null && d.precipitation_pct !== undefined ? d.precipitation_pct+'%' : '—'}</div>
+    </div>
+  `).join('');
+}
+
+let chartInstance = null;
+function renderChart(rows){
+  const ctx = document.getElementById('demandChart').getContext('2d');
+  const labels = rows.map(r => r.date);
+  const actual = rows.map(r => r.actual);
+  const forecast = rows.map(r => r.forecast);
+
+  if(chartInstance) chartInstance.destroy();
+  chartInstance = new Chart(ctx, {
+    type:'line',
+    data:{
+      labels,
+      datasets:[
+        {
+          label:'Actual Visitors',
+          data:actual,
+          borderColor:'#0F2B46',
+          backgroundColor:'rgba(15,43,70,0.08)',
+          borderWidth:2,
+          tension:.3,
+          pointRadius:0,
+          fill:true,
+        },
+        {
+          label:'Model Forecast',
+          data:forecast,
+          borderColor:'#B5432E',
+          borderDash:[4,3],
+          borderWidth:2,
+          tension:.3,
+          pointRadius:0,
+          fill:false,
+        }
+      ]
+    },
+    options:{
+      responsive:true,
+      interaction:{ mode:'index', intersect:false },
+      plugins:{
+        legend:{ position:'top', labels:{ font:{family:'Inter'}, boxWidth:12 } },
+        tooltip:{
+          callbacks:{
+            label: function(ctx){
+              const val = Number(ctx.parsed.y).toLocaleString('en-US');
+              return ctx.dataset.label + ': ' + val;
+            }
+          }
+        }
+      },
+      scales:{
+        x:{ ticks:{ maxTicksLimit:10, font:{family:'JetBrains Mono', size:10} }, grid:{ display:false } },
+        y:{
+          ticks:{
+            font:{family:'JetBrains Mono', size:10},
+            callback: function(value){ return Number(value).toLocaleString('en-US'); }
+          },
+          grid:{ color:'rgba(15,43,70,0.06)' }
+        }
+      }
+    }
+  });
+}
+
+function renderPacing(rows){
+  const body = document.getElementById('pacing-body');
+  if(!rows.length){
+    body.innerHTML = '<tr><td colspan="5" style="color:var(--ink-soft);font-family:Inter;">No pacing data available.</td></tr>';
+    return;
+  }
+  body.innerHTML = rows.slice().reverse().map(r => `
+    <tr>
+      <td>${r.date}</td>
+      <td>${fmtNum(r.actual)}</td>
+      <td>${fmtNum(r.forecast)}</td>
+      <td>${(r.rate*100).toFixed(0)}%</td>
+      <td><span class="badge badge-${r.badge}">${badgeLabel(r.badge)}</span></td>
+    </tr>
+  `).join('');
+}
+
+function renderNudges(list){
+  const el = document.getElementById('nudges-list');
+  const empty = document.getElementById('nudges-empty');
+  if(!list.length){
+    el.style.display = 'none';
+    empty.style.display = 'block';
+    return;
+  }
+  el.style.display = 'block';
+  empty.style.display = 'none';
+  el.innerHTML = list.map(n => `
+    <div class="nudge-card ${n.type}">
+      <div class="nudge-type">${n.type === 'weather' ? 'Weather Risk' : 'Demand Signal'} · ${n.date}</div>
+      <div>${n.message}</div>
+    </div>
+  `).join('');
+}
+
+function fmtNum(n){
+  if(n === null || n === undefined) return '—';
+  return Math.round(n).toLocaleString('en-US');
+}
+function fmtShortDate(dateStr){
+  const d = new Date(dateStr);
+  if(isNaN(d)) return dateStr;
+  return d.toLocaleDateString('en-GB', {day:'2-digit', month:'short'});
+}
+
+function exportPPTX(){
+  if(!DASHBOARD_DATA){ alert('Data not loaded yet.'); return; }
+  if(typeof PptxGenJS === 'undefined'){
+    alert('The PowerPoint export library failed to load. Check your internet connection and try again.');
+    return;
+  }
+  const data = DASHBOARD_DATA;
+  const pptx = new PptxGenJS();
+  pptx.defineLayout({ name:'FTAS', width:10, height:5.63 });
+  pptx.layout = 'FTAS';
+
+  const slide1 = pptx.addSlide();
+  slide1.background = { color:'0F2B46' };
+  slide1.addText('FTAS Executive Dashboard', { x:0.5, y:1.8, w:9, h:0.8, fontSize:32, bold:true, color:'F7F3EA', fontFace:'Georgia' });
+  slide1.addText('Fukui Tourism Analytics System — Summary Report', { x:0.5, y:2.6, w:9, h:0.5, fontSize:16, color:'C79A46' });
+
+  const p30 = (data.summary || {}).past_30_day || {};
+  const slide2 = pptx.addSlide();
+  slide2.addText('Executive Summary', { x:0.4, y:0.3, fontSize:24, bold:true, color:'0F2B46' });
+  slide2.addText([
+    { text: `Past 30 Days: ${p30.current_total ?? '—'}\n`, options:{ fontSize:16 } },
+    { text: `Same Period Last Year: ${p30.previous_year_total ?? '—'}\n`, options:{ fontSize:16 } },
+    { text: `Net Difference: ${p30.diff ?? '—'} (${p30.yoy_pct ?? '—'}% YoY)\n`, options:{ fontSize:16 } },
+  ], { x:0.4, y:1.1, w:9, h:2 });
+
+  const slide3 = pptx.addSlide();
+  slide3.addText('Recommended Actions', { x:0.4, y:0.3, fontSize:24, bold:true, color:'0F2B46' });
+  const nudgeText = (data.nudges || []).map(n => `• [${n.date}] ${n.message}`).join('\n') || 'No active recommendations.';
+  slide3.addText(nudgeText, { x:0.4, y:1.1, w:9, h:3.5, fontSize:14 });
+
+  pptx.writeFile({ fileName:'FTAS_Executive_Summary.pptx' });
+}
+
+document.addEventListener('DOMContentLoaded', loadDashboardData);
+</script>
+
+</body>
+</html>
