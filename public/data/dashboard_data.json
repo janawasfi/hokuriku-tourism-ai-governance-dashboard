@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T11:56:24.371990Z",
+  "generated_at": "2026-08-29T21:25:18.479206Z",
   "summary": {
     "past_30_day": {
       "current_total": 228416,
@@ -15,24 +15,17 @@
   },
   "weather_strip": [
     {
-      "date": "2026-08-29",
-      "weather": "雨　所により　雷を伴い　非常に　激しく　降る",
-      "wind": "南の風　海上　では　南西の風　やや強く",
-      "precipitation_pct": 90,
-      "rain_risk": true
-    },
-    {
       "date": "2026-08-30",
-      "weather": "雨　昼過ぎ　から　時々　くもり　所により　明け方　まで　雷を伴い　非常に　激しく　降る",
+      "weather": "雨　夜　くもり　所により　朝　まで　雷を伴い　非常に　激しく　降る",
       "wind": "南の風　海上　では　南西の風　やや強く",
-      "precipitation_pct": 90,
+      "precipitation_pct": 80,
       "rain_risk": true
     },
     {
       "date": "2026-08-31",
-      "weather": "くもり　時々　晴れ",
+      "weather": "晴れ　朝晩　くもり",
       "wind": "南の風　後　北の風",
-      "precipitation_pct": null,
+      "precipitation_pct": 20,
       "rain_risk": false
     }
   ],
@@ -453,11 +446,6 @@
     }
   ],
   "nudges": [
-    {
-      "type": "weather",
-      "date": "2026-08-29",
-      "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
-    },
     {
       "type": "weather",
       "date": "2026-08-30",
