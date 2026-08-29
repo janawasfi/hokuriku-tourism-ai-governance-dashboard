@@ -57,7 +57,7 @@ jobs:
 
       - name: Run report generation script
         working-directory: hokuriku-tourism-ai-governance-dashboard
-        run: python scripts/generate_report_data.py
+        run: PYTHONPATH=. python scripts/generate_report_data.py
 
       - name: Commit and push updated dashboard data
         working-directory: hokuriku-tourism-ai-governance-dashboard
