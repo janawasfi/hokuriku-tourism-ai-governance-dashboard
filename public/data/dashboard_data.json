@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T21:25:59.483814Z",
+  "generated_at": "2026-08-31T09:21:26.186769Z",
   "summary": {
     "past_30_day": {
       "current_total": 228416,
@@ -16,16 +16,23 @@
   "weather_strip": [
     {
       "date": "2026-08-31",
-      "weather": "晴れ　時々　くもり　所により　昼過ぎ　から　夜のはじめ頃　雨",
-      "wind": "南の風　日中　北の風",
+      "weather": "晴れ　夜のはじめ頃　くもり　所により　夜のはじめ頃　まで　雨　で　雷を伴い　激しく　降る",
+      "wind": "北の風　後　南の風",
       "precipitation_pct": 20,
       "rain_risk": false
     },
     {
       "date": "2026-09-01",
-      "weather": "晴れ　時々　くもり",
+      "weather": "晴れ　時々　くもり　所により　昼過ぎ　から　夜のはじめ頃　雨",
       "wind": "南の風　海上　では　南の風　やや強く",
       "precipitation_pct": 10,
+      "rain_risk": false
+    },
+    {
+      "date": "2026-09-02",
+      "weather": "くもり",
+      "wind": "南の風",
+      "precipitation_pct": null,
       "rain_risk": false
     }
   ],
@@ -451,5 +458,7 @@
       "date": "2026-03-05",
       "message": "Very high demand — raise rates and enable on-site upsell offers."
     }
-  ]
+  ],
+  "weather_data_is_stale": false,
+  "estimated_outlook": []
 }
