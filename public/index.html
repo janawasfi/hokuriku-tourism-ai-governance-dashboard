@@ -175,6 +175,47 @@
   .weather-pop.risk{ color:var(--torii); }
   .weather-pop.safe{ color:var(--ai-mid); }
 
+  /* ---------- estimated outlook (live-weather fallback) ---------- */
+  #estimated-outlook-section{ display:none; }
+  .outlook-banner{
+    display:flex; align-items:center; gap:.6rem;
+    background:var(--amber-soft);
+    border:1px dashed var(--amber);
+    border-radius:8px;
+    padding:.7rem 1rem;
+    font-size:.8rem;
+    color:#6B4E14;
+    margin-bottom:1rem;
+  }
+  .outlook-scroll{
+    display:flex; gap:.7rem; overflow-x:auto; padding-bottom:.4rem;
+    scrollbar-width:thin;
+  }
+  .outlook-day{
+    min-width:128px;
+    background:var(--washi-card);
+    border:1px dashed var(--amber);
+    border-radius:8px;
+    padding:.8rem .6rem;
+    text-align:center;
+    flex-shrink:0;
+  }
+  .outlook-date{ font-size:.68rem; color:var(--ink-soft); font-family:'JetBrains Mono',monospace; }
+  .outlook-desc{ font-size:.7rem; margin:.45rem 0 .35rem; color:var(--ink); min-height:2.2em; }
+  .outlook-value{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:1.1rem; color:var(--amber); }
+  .outlook-tag{
+    display:inline-block;
+    margin-top:.4rem;
+    font-size:.6rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--amber);
+    background:var(--amber-soft);
+    border-radius:4px;
+    padding:.15rem .4rem;
+  }
+
   /* ---------- chart card ---------- */
   .chart-card{
     background:var(--washi-card);
@@ -325,6 +366,20 @@
   </div>
 </section>
 
+<!-- SECTION 3B — Estimated Near-Term Outlook (shown only when local weather data is stale) -->
+<section class="panel" style="padding-top:0;" id="estimated-outlook-section">
+  <div class="section-head">
+    <div>
+      <div class="section-title">Near-Term Outlook (Estimated)</div>
+    </div>
+    <div class="section-sub">Based on live weather forecast</div>
+  </div>
+  <div class="outlook-banner">
+    ⚠️ The local historical weather file is out of date, so these days are an approximate estimate built from the live weather forecast and recent averages — not a full model-quality prediction. Treat as directional only.
+  </div>
+  <div class="outlook-scroll" id="estimated-outlook"></div>
+</section>
+
 <!-- SECTION 4 — Weekly Pacing Table -->
 <section class="panel" style="padding-top:0;">
   <div class="section-head">
@@ -401,6 +456,7 @@ function renderAll(data){
   renderSummary(data.summary || {});
   renderWeather(data.weather_strip || []);
   renderChart(data.demand_forecast || []);
+  renderEstimatedOutlook(data.estimated_outlook || []);
   renderPacing(data.weekly_pacing || []);
   renderNudges(data.nudges || []);
 }
@@ -449,6 +505,24 @@ function renderWeather(days){
       <div class="weather-date">${fmtShortDate(d.date)}</div>
       <div class="weather-desc">${d.weather || '—'}</div>
       <div class="weather-pop ${d.rain_risk ? 'risk':'safe'}">${d.precipitation_pct !== null && d.precipitation_pct !== undefined ? d.precipitation_pct+'%' : '—'}</div>
+    </div>
+  `).join('');
+}
+
+function renderEstimatedOutlook(days){
+  const section = document.getElementById('estimated-outlook-section');
+  const el = document.getElementById('estimated-outlook');
+  if(!days || !days.length){
+    section.style.display = 'none';
+    return;
+  }
+  section.style.display = 'block';
+  el.innerHTML = days.map(d => `
+    <div class="outlook-day">
+      <div class="outlook-date">${fmtShortDate(d.date)}</div>
+      <div class="outlook-desc">${d.weather || '—'}</div>
+      <div class="outlook-value">${fmtNum(d.estimated_demand)}</div>
+      <div class="outlook-tag">Estimated</div>
     </div>
   `).join('');
 }
