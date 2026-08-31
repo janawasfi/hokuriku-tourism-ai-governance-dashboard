@@ -88,11 +88,24 @@ def is_local_weather_stale(daily: pd.DataFrame, threshold_days: int = WEATHER_FR
     """
     Double-condition check (part 1): is the local static JMA weather data
     recent enough to trust, or should we fall back to the live forecast API?
+
+    IMPORTANT: this checks the last date that actually HAS non-null weather
+    values (temp/precip/wind), not just the last date present in the merged
+    "daily" table overall. Other sources (people-flow, survey) can extend
+    further than the static JMA file, leaving weather columns as NaN for
+    those trailing rows -- checking daily["date"].max() alone would wrongly
+    report "fresh" even when the static weather file itself is old.
     """
     if daily.empty:
         return True
-    last_local_date = daily["date"].max()
-    age_days = (pd.Timestamp(datetime.utcnow().date()) - last_local_date).days
+    weather_cols = [c for c in ("temp", "precip", "wind") if c in daily.columns]
+    if not weather_cols:
+        return True
+    has_weather = daily.dropna(subset=weather_cols, how="any")
+    if has_weather.empty:
+        return True
+    last_weather_date = has_weather["date"].max()
+    age_days = (pd.Timestamp(datetime.utcnow().date()) - last_weather_date).days
     return age_days > threshold_days
 
 
@@ -173,11 +186,17 @@ def build_estimated_outlook(daily: pd.DataFrame, route_col: str, model, feature_
     if not live_forecast or daily.empty:
         return []
 
-    recent = daily.sort_values("date").tail(7)
+    weather_cols = [c for c in ("temp", "precip", "wind") if c in daily.columns]
+    with_weather = daily.dropna(subset=weather_cols, how="any") if weather_cols else daily
+    recent = with_weather.sort_values("date").tail(7)
+    if recent.empty:
+        # No historical weather data at all to build a baseline from.
+        return []
     baseline_temp = recent["temp"].mean() if "temp" in recent else None
     baseline_sun = recent["sun"].mean() if "sun" in recent else None
     baseline_wind = recent["wind"].mean() if "wind" in recent else None
-    recent_route_values = daily.sort_values("date")[route_col].tail(7).tolist()
+    # Route (people-flow) values can come from the full, more up-to-date table.
+    recent_route_values = daily.sort_values("date")[route_col].dropna().tail(7).tolist()
 
     rows = []
     import jpholiday
