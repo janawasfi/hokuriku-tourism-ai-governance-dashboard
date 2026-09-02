@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T21:29:33.165951Z",
+  "generated_at": "2026-09-02T21:31:29.328489Z",
   "summary": {
     "past_30_day": {
       "current_total": 228416,
@@ -15,18 +15,18 @@
   },
   "weather_strip": [
     {
-      "date": "2026-09-02",
-      "weather": "晴れ　昼過ぎ　から　くもり　所により　昼過ぎ　から　夜のはじめ頃　雨　で　雷を伴い　激しく　降る",
-      "wind": "南の風　海上　では　はじめ　南の風　やや強く",
-      "precipitation_pct": 20,
-      "rain_risk": false
+      "date": "2026-09-03",
+      "weather": "雨　所により　昼前　から　雷を伴い　激しく　降る",
+      "wind": "南の風",
+      "precipitation_pct": 60,
+      "rain_risk": true
     },
     {
-      "date": "2026-09-03",
-      "weather": "雨　朝晩　くもり　所により　昼前　から　夜のはじめ頃　雷を伴い　激しく　降る",
-      "wind": "南の風　日中　北の風",
-      "precipitation_pct": 30,
-      "rain_risk": false
+      "date": "2026-09-04",
+      "weather": "雨　昼過ぎ　から　時々　くもり　所により　明け方　まで　雷を伴い　激しく　降る",
+      "wind": "南の風　後　北の風　海上　では　後　北東の風　やや強く",
+      "precipitation_pct": 60,
+      "rain_risk": true
     }
   ],
   "demand_forecast": [
@@ -447,6 +447,16 @@
   ],
   "nudges": [
     {
+      "type": "weather",
+      "date": "2026-09-03",
+      "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
+    },
+    {
+      "type": "weather",
+      "date": "2026-09-04",
+      "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
+    },
+    {
       "type": "demand",
       "date": "2026-03-05",
       "message": "Very high demand — raise rates and enable on-site upsell offers."
@@ -455,19 +465,19 @@
   "weather_data_is_stale": true,
   "estimated_outlook": [
     {
-      "date": "2026-09-02",
-      "estimated_demand": 16183.7,
-      "weather": "晴れ　昼過ぎ　から　くもり　所により　昼過ぎ　から　夜のはじめ頃　雨　で　雷を伴い　激しく　降る",
-      "precipitation_pct": 20,
-      "rain_risk": false,
+      "date": "2026-09-03",
+      "estimated_demand": 16043.3,
+      "weather": "雨　所により　昼前　から　雷を伴い　激しく　降る",
+      "precipitation_pct": 60,
+      "rain_risk": true,
       "is_estimated": true
     },
     {
-      "date": "2026-09-03",
-      "estimated_demand": 16183.7,
-      "weather": "雨　朝晩　くもり　所により　昼前　から　夜のはじめ頃　雷を伴い　激しく　降る",
-      "precipitation_pct": 30,
-      "rain_risk": false,
+      "date": "2026-09-04",
+      "estimated_demand": 16043.3,
+      "weather": "雨　昼過ぎ　から　時々　くもり　所により　明け方　まで　雷を伴い　激しく　降る",
+      "precipitation_pct": 60,
+      "rain_risk": true,
       "is_estimated": true
     }
   ]
