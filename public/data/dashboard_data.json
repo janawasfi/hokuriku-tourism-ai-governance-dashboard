@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T21:31:29.672377Z",
+  "generated_at": "2026-09-05T21:29:07.108000Z",
   "summary": {
     "past_30_day": {
       "current_total": 228416,
@@ -15,18 +15,18 @@
   },
   "weather_strip": [
     {
-      "date": "2026-09-05",
-      "weather": "くもり　時々　晴れ",
-      "wind": "北の風　日中　やや強く",
-      "precipitation_pct": 20,
+      "date": "2026-09-06",
+      "weather": "くもり　夜遅く　雨",
+      "wind": "南の風　日中　北の風　海上　では　はじめ　北東の風　やや強く",
+      "precipitation_pct": 0,
       "rain_risk": false
     },
     {
-      "date": "2026-09-06",
-      "weather": "くもり　朝　から　昼過ぎ　晴れ　所により　夜　雨",
-      "wind": "南の風　後　北の風　海上　では　はじめ　北東の風　やや強く",
-      "precipitation_pct": 10,
-      "rain_risk": false
+      "date": "2026-09-07",
+      "weather": "雨　夜　くもり",
+      "wind": "北の風　海上　では　北東の風　やや強く",
+      "precipitation_pct": 70,
+      "rain_risk": true
     }
   ],
   "demand_forecast": [
@@ -447,6 +447,11 @@
   ],
   "nudges": [
     {
+      "type": "weather",
+      "date": "2026-09-07",
+      "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
+    },
+    {
       "type": "demand",
       "date": "2026-03-05",
       "message": "Very high demand — raise rates and enable on-site upsell offers."
@@ -455,19 +460,19 @@
   "weather_data_is_stale": true,
   "estimated_outlook": [
     {
-      "date": "2026-09-05",
-      "estimated_demand": 17721.5,
-      "weather": "くもり　時々　晴れ",
-      "precipitation_pct": 20,
+      "date": "2026-09-06",
+      "estimated_demand": 15243.7,
+      "weather": "くもり　夜遅く　雨",
+      "precipitation_pct": 0,
       "rain_risk": false,
       "is_estimated": true
     },
     {
-      "date": "2026-09-06",
-      "estimated_demand": 17721.5,
-      "weather": "くもり　朝　から　昼過ぎ　晴れ　所により　夜　雨",
-      "precipitation_pct": 10,
-      "rain_risk": false,
+      "date": "2026-09-07",
+      "estimated_demand": 14130.2,
+      "weather": "雨　夜　くもり",
+      "precipitation_pct": 70,
+      "rain_risk": true,
       "is_estimated": true
     }
   ]
