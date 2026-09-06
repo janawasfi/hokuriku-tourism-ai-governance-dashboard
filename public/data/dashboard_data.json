@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T21:29:07.108000Z",
+  "generated_at": "2026-09-06T21:28:50.668912Z",
   "summary": {
     "past_30_day": {
       "current_total": 228416,
@@ -15,16 +15,16 @@
   },
   "weather_strip": [
     {
-      "date": "2026-09-06",
-      "weather": "くもり　夜遅く　雨",
-      "wind": "南の風　日中　北の風　海上　では　はじめ　北東の風　やや強く",
-      "precipitation_pct": 0,
-      "rain_risk": false
+      "date": "2026-09-07",
+      "weather": "雨　時々　くもり",
+      "wind": "南の風　海上　では　北東の風　やや強く",
+      "precipitation_pct": 60,
+      "rain_risk": true
     },
     {
-      "date": "2026-09-07",
-      "weather": "雨　夜　くもり",
-      "wind": "北の風　海上　では　北東の風　やや強く",
+      "date": "2026-09-08",
+      "weather": "雨　時々　くもり　所により　昼前　から　雷を伴い　激しく　降る",
+      "wind": "南の風　後　北の風　海上　では　後　北東の風　やや強く",
       "precipitation_pct": 70,
       "rain_risk": true
     }
@@ -452,6 +452,11 @@
       "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
     },
     {
+      "type": "weather",
+      "date": "2026-09-08",
+      "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
+    },
+    {
       "type": "demand",
       "date": "2026-03-05",
       "message": "Very high demand — raise rates and enable on-site upsell offers."
@@ -460,17 +465,17 @@
   "weather_data_is_stale": true,
   "estimated_outlook": [
     {
-      "date": "2026-09-06",
-      "estimated_demand": 15243.7,
-      "weather": "くもり　夜遅く　雨",
-      "precipitation_pct": 0,
-      "rain_risk": false,
+      "date": "2026-09-07",
+      "estimated_demand": 12513.6,
+      "weather": "雨　時々　くもり",
+      "precipitation_pct": 60,
+      "rain_risk": true,
       "is_estimated": true
     },
     {
-      "date": "2026-09-07",
-      "estimated_demand": 14130.2,
-      "weather": "雨　夜　くもり",
+      "date": "2026-09-08",
+      "estimated_demand": 12513.6,
+      "weather": "雨　時々　くもり　所により　昼前　から　雷を伴い　激しく　降る",
       "precipitation_pct": 70,
       "rain_risk": true,
       "is_estimated": true
