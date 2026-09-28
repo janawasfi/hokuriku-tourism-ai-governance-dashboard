@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T23:41:31.407543Z",
+  "generated_at": "2026-09-28T00:01:12.302135Z",
   "summary": {
     "past_30_day": {
       "current_total": 228416,
@@ -15,17 +15,17 @@
   },
   "weather_strip": [
     {
-      "date": "2026-09-27",
-      "weather": "くもり　昼過ぎ　から　時々　晴れ　所により　夜　雨",
-      "wind": "南の風　海上　では　後　南の風　やや強く",
-      "precipitation_pct": 10,
-      "rain_risk": false
+      "date": "2026-09-28",
+      "weather": "雨　夕方　から　時々　くもり　所により　朝　から　昼過ぎ　雷を伴い　激しく　降る",
+      "wind": "南の風　海上　では　南の風　やや強く",
+      "precipitation_pct": 90,
+      "rain_risk": true
     },
     {
-      "date": "2026-09-28",
-      "weather": "くもり　時々　雨　所により　明け方　から　昼前　雷を伴い　激しく　降る",
-      "wind": "南の風　海上　では　南の風　やや強く",
-      "precipitation_pct": 60,
+      "date": "2026-09-29",
+      "weather": "雨　昼過ぎ　から　くもり",
+      "wind": "南の風　後　北の風",
+      "precipitation_pct": 70,
       "rain_risk": true
     }
   ],
@@ -452,6 +452,11 @@
       "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
     },
     {
+      "type": "weather",
+      "date": "2026-09-29",
+      "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
+    },
+    {
       "type": "demand",
       "date": "2026-03-05",
       "message": "Very high demand — raise rates and enable on-site upsell offers."
@@ -460,18 +465,18 @@
   "weather_data_is_stale": true,
   "estimated_outlook": [
     {
-      "date": "2026-09-27",
-      "estimated_demand": 19210.8,
-      "weather": "くもり　昼過ぎ　から　時々　晴れ　所により　夜　雨",
-      "precipitation_pct": 10,
-      "rain_risk": false,
+      "date": "2026-09-28",
+      "estimated_demand": 18862.4,
+      "weather": "雨　夕方　から　時々　くもり　所により　朝　から　昼過ぎ　雷を伴い　激しく　降る",
+      "precipitation_pct": 90,
+      "rain_risk": true,
       "is_estimated": true
     },
     {
-      "date": "2026-09-28",
-      "estimated_demand": 18627.9,
-      "weather": "くもり　時々　雨　所により　明け方　から　昼前　雷を伴い　激しく　降る",
-      "precipitation_pct": 60,
+      "date": "2026-09-29",
+      "estimated_demand": 18862.4,
+      "weather": "雨　昼過ぎ　から　くもり",
+      "precipitation_pct": 70,
       "rain_risk": true,
       "is_estimated": true
     }
