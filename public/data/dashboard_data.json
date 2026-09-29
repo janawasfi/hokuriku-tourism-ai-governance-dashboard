@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T00:01:12.302135Z",
+  "generated_at": "2026-09-29T01:08:42.343296Z",
   "summary": {
     "past_30_day": {
       "current_total": 228416,
@@ -15,18 +15,18 @@
   },
   "weather_strip": [
     {
-      "date": "2026-09-28",
-      "weather": "雨　夕方　から　時々　くもり　所により　朝　から　昼過ぎ　雷を伴い　激しく　降る",
-      "wind": "南の風　海上　では　南の風　やや強く",
-      "precipitation_pct": 90,
+      "date": "2026-09-29",
+      "weather": "雨　夕方　から　くもり",
+      "wind": "北の風",
+      "precipitation_pct": 80,
       "rain_risk": true
     },
     {
-      "date": "2026-09-29",
-      "weather": "雨　昼過ぎ　から　くもり",
-      "wind": "南の風　後　北の風",
-      "precipitation_pct": 70,
-      "rain_risk": true
+      "date": "2026-09-30",
+      "weather": "晴れ　昼前　まで　時々　くもり",
+      "wind": "南の風　日中　北の風",
+      "precipitation_pct": 10,
+      "rain_risk": false
     }
   ],
   "demand_forecast": [
@@ -448,11 +448,6 @@
   "nudges": [
     {
       "type": "weather",
-      "date": "2026-09-28",
-      "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
-    },
-    {
-      "type": "weather",
       "date": "2026-09-29",
       "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
     },
@@ -465,19 +460,19 @@
   "weather_data_is_stale": true,
   "estimated_outlook": [
     {
-      "date": "2026-09-28",
-      "estimated_demand": 18862.4,
-      "weather": "雨　夕方　から　時々　くもり　所により　朝　から　昼過ぎ　雷を伴い　激しく　降る",
-      "precipitation_pct": 90,
+      "date": "2026-09-29",
+      "estimated_demand": 18435.7,
+      "weather": "雨　夕方　から　くもり",
+      "precipitation_pct": 80,
       "rain_risk": true,
       "is_estimated": true
     },
     {
-      "date": "2026-09-29",
-      "estimated_demand": 18862.4,
-      "weather": "雨　昼過ぎ　から　くもり",
-      "precipitation_pct": 70,
-      "rain_risk": true,
+      "date": "2026-09-30",
+      "estimated_demand": 18524.9,
+      "weather": "晴れ　昼前　まで　時々　くもり",
+      "precipitation_pct": 10,
+      "rain_risk": false,
       "is_estimated": true
     }
   ]
