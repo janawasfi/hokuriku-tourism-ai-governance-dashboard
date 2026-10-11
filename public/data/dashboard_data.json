@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T00:47:40.716540Z",
+  "generated_at": "2026-10-11T00:25:13.769089Z",
   "summary": {
     "past_30_day": {
       "current_total": 228416,
@@ -15,16 +15,16 @@
   },
   "weather_strip": [
     {
-      "date": "2026-10-10",
+      "date": "2026-10-11",
       "weather": "晴れ",
-      "wind": "北の風",
+      "wind": "北の風　海上　では　北の風　やや強く",
       "precipitation_pct": 0,
       "rain_risk": false
     },
     {
-      "date": "2026-10-11",
-      "weather": "晴れ",
-      "wind": "南の風　後　北の風",
+      "date": "2026-10-12",
+      "weather": "くもり　時々　晴れ",
+      "wind": "南の風　日中　北の風　海上　では　はじめ　北東の風　やや強く",
       "precipitation_pct": 0,
       "rain_risk": false
     }
@@ -455,17 +455,17 @@
   "weather_data_is_stale": true,
   "estimated_outlook": [
     {
-      "date": "2026-10-10",
-      "estimated_demand": 10439.6,
+      "date": "2026-10-11",
+      "estimated_demand": 8129.0,
       "weather": "晴れ",
       "precipitation_pct": 0,
       "rain_risk": false,
       "is_estimated": true
     },
     {
-      "date": "2026-10-11",
-      "estimated_demand": 10439.6,
-      "weather": "晴れ",
+      "date": "2026-10-12",
+      "estimated_demand": 8129.0,
+      "weather": "くもり　時々　晴れ",
       "precipitation_pct": 0,
       "rain_risk": false,
       "is_estimated": true
