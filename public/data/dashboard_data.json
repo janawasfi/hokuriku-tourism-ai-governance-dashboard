@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T02:44:38.511029Z",
+  "generated_at": "2026-10-14T00:28:43.975694Z",
   "summary": {
     "past_30_day": {
       "current_total": 228416,
@@ -15,24 +15,17 @@
   },
   "weather_strip": [
     {
-      "date": "2026-10-13",
-      "weather": "晴れ　夕方　から　くもり",
-      "wind": "南の風　後　やや強く　海上　では　後　南の風　強く",
-      "precipitation_pct": 0,
-      "rain_risk": false
-    },
-    {
       "date": "2026-10-14",
-      "weather": "くもり　昼過ぎ　まで　時々　雨　所により　昼前　まで　雷　を伴う",
-      "wind": "南の風　後　北の風　海上　では　はじめ　南の風　強く",
+      "weather": "雨　昼過ぎ　から　くもり　所により　明け方　雷を伴い　激しく　降る",
+      "wind": "南の風　後　北の風　海上　では　はじめ　西の風　強く",
       "precipitation_pct": 90,
       "rain_risk": true
     },
     {
       "date": "2026-10-15",
-      "weather": "くもり　時々　晴れ",
-      "wind": "北の風　後　北西の風",
-      "precipitation_pct": null,
+      "weather": "晴れ　時々　くもり",
+      "wind": "北の風",
+      "precipitation_pct": 10,
       "rain_risk": false
     }
   ],
@@ -467,26 +460,18 @@
   "weather_data_is_stale": true,
   "estimated_outlook": [
     {
-      "date": "2026-10-13",
-      "estimated_demand": 7248.8,
-      "weather": "晴れ　夕方　から　くもり",
-      "precipitation_pct": 0,
-      "rain_risk": false,
-      "is_estimated": true
-    },
-    {
       "date": "2026-10-14",
-      "estimated_demand": 6549.7,
-      "weather": "くもり　昼過ぎ　まで　時々　雨　所により　昼前　まで　雷　を伴う",
+      "estimated_demand": 8147.2,
+      "weather": "雨　昼過ぎ　から　くもり　所により　明け方　雷を伴い　激しく　降る",
       "precipitation_pct": 90,
       "rain_risk": true,
       "is_estimated": true
     },
     {
       "date": "2026-10-15",
-      "estimated_demand": 7248.8,
-      "weather": "くもり　時々　晴れ",
-      "precipitation_pct": null,
+      "estimated_demand": 8576.0,
+      "weather": "晴れ　時々　くもり",
+      "precipitation_pct": 10,
       "rain_risk": false,
       "is_estimated": true
     }
