@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T00:16:29.120099Z",
+  "generated_at": "2026-10-23T00:14:53.211922Z",
   "summary": {
     "past_30_day": {
       "current_total": 228416,
@@ -15,18 +15,18 @@
   },
   "weather_strip": [
     {
-      "date": "2026-10-22",
-      "weather": "くもり　夜　晴れ　所により　昼過ぎ　まで　雨",
-      "wind": "北の風　日中　やや強く",
-      "precipitation_pct": 20,
+      "date": "2026-10-23",
+      "weather": "晴れ　夕方　から　くもり",
+      "wind": "南の風　日中　北の風　海上　では　北東の風　やや強く",
+      "precipitation_pct": 0,
       "rain_risk": false
     },
     {
-      "date": "2026-10-23",
-      "weather": "晴れ",
-      "wind": "南の風　海上　では　北東の風　やや強く",
-      "precipitation_pct": 0,
-      "rain_risk": false
+      "date": "2026-10-24",
+      "weather": "雨　朝晩　くもり",
+      "wind": "南の風　海上　では　南東の風　やや強く",
+      "precipitation_pct": 60,
+      "rain_risk": true
     }
   ],
   "demand_forecast": [
@@ -447,6 +447,11 @@
   ],
   "nudges": [
     {
+      "type": "weather",
+      "date": "2026-10-24",
+      "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
+    },
+    {
       "type": "demand",
       "date": "2026-03-05",
       "message": "Very high demand — raise rates and enable on-site upsell offers."
@@ -455,19 +460,19 @@
   "weather_data_is_stale": true,
   "estimated_outlook": [
     {
-      "date": "2026-10-22",
-      "estimated_demand": 8914.9,
-      "weather": "くもり　夜　晴れ　所により　昼過ぎ　まで　雨",
-      "precipitation_pct": 20,
+      "date": "2026-10-23",
+      "estimated_demand": 8929.2,
+      "weather": "晴れ　夕方　から　くもり",
+      "precipitation_pct": 0,
       "rain_risk": false,
       "is_estimated": true
     },
     {
-      "date": "2026-10-23",
-      "estimated_demand": 8914.9,
-      "weather": "晴れ",
-      "precipitation_pct": 0,
-      "rain_risk": false,
+      "date": "2026-10-24",
+      "estimated_demand": 9230.3,
+      "weather": "雨　朝晩　くもり",
+      "precipitation_pct": 60,
+      "rain_risk": true,
       "is_estimated": true
     }
   ]
