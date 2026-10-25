@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T23:14:56.005081Z",
+  "generated_at": "2026-10-25T23:21:58.224799Z",
   "summary": {
     "past_30_day": {
       "current_total": 228416,
@@ -15,18 +15,18 @@
   },
   "weather_strip": [
     {
-      "date": "2026-10-25",
-      "weather": "雨　所により　朝　から　昼過ぎ　雷を伴い　激しく　降る",
-      "wind": "南の風　後　北の風　海上　では　南の風　やや強く",
-      "precipitation_pct": 90,
+      "date": "2026-10-26",
+      "weather": "雨　夜　くもり　所により　昼前　から　夕方　雷　を伴う",
+      "wind": "北の風　海上　では　北東の風　やや強く",
+      "precipitation_pct": 80,
       "rain_risk": true
     },
     {
-      "date": "2026-10-26",
-      "weather": "雨　時々　くもり　所により　昼前　から　夕方　雷を伴い　激しく　降る",
-      "wind": "北の風　日中　南の風　海上　では　北東の風　やや強く",
-      "precipitation_pct": 50,
-      "rain_risk": true
+      "date": "2026-10-27",
+      "weather": "くもり　夕方　一時　雨",
+      "wind": "北の風　後　北西の風　やや強く　海上　では　後　北西の風　強く",
+      "precipitation_pct": 20,
+      "rain_risk": false
     }
   ],
   "demand_forecast": [
@@ -448,11 +448,6 @@
   "nudges": [
     {
       "type": "weather",
-      "date": "2026-10-25",
-      "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
-    },
-    {
-      "type": "weather",
       "date": "2026-10-26",
       "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
     },
@@ -465,19 +460,19 @@
   "weather_data_is_stale": true,
   "estimated_outlook": [
     {
-      "date": "2026-10-25",
-      "estimated_demand": 9423.9,
-      "weather": "雨　所により　朝　から　昼過ぎ　雷を伴い　激しく　降る",
-      "precipitation_pct": 90,
+      "date": "2026-10-26",
+      "estimated_demand": 11158.9,
+      "weather": "雨　夜　くもり　所により　昼前　から　夕方　雷　を伴う",
+      "precipitation_pct": 80,
       "rain_risk": true,
       "is_estimated": true
     },
     {
-      "date": "2026-10-26",
-      "estimated_demand": 8116.8,
-      "weather": "雨　時々　くもり　所により　昼前　から　夕方　雷を伴い　激しく　降る",
-      "precipitation_pct": 50,
-      "rain_risk": true,
+      "date": "2026-10-27",
+      "estimated_demand": 11859.2,
+      "weather": "くもり　夕方　一時　雨",
+      "precipitation_pct": 20,
+      "rain_risk": false,
       "is_estimated": true
     }
   ]
