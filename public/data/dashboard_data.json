@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T23:21:58.224799Z",
+  "generated_at": "2026-10-27T00:34:44.641770Z",
   "summary": {
     "past_30_day": {
       "current_total": 228416,
@@ -15,18 +15,18 @@
   },
   "weather_strip": [
     {
-      "date": "2026-10-26",
-      "weather": "雨　夜　くもり　所により　昼前　から　夕方　雷　を伴う",
-      "wind": "北の風　海上　では　北東の風　やや強く",
-      "precipitation_pct": 80,
-      "rain_risk": true
+      "date": "2026-10-27",
+      "weather": "くもり　時々　晴れ　夕方　一時　雨",
+      "wind": "北の風　後　北西の風　やや強く　海上　では　後　北西の風　強く",
+      "precipitation_pct": 10,
+      "rain_risk": false
     },
     {
-      "date": "2026-10-27",
-      "weather": "くもり　夕方　一時　雨",
-      "wind": "北の風　後　北西の風　やや強く　海上　では　後　北西の風　強く",
-      "precipitation_pct": 20,
-      "rain_risk": false
+      "date": "2026-10-28",
+      "weather": "くもり　明け方　一時　雨",
+      "wind": "北の風　やや強く　海上　では　はじめ　北西の風　強く",
+      "precipitation_pct": 50,
+      "rain_risk": true
     }
   ],
   "demand_forecast": [
@@ -448,7 +448,7 @@
   "nudges": [
     {
       "type": "weather",
-      "date": "2026-10-26",
+      "date": "2026-10-28",
       "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
     },
     {
@@ -460,19 +460,19 @@
   "weather_data_is_stale": true,
   "estimated_outlook": [
     {
-      "date": "2026-10-26",
-      "estimated_demand": 11158.9,
-      "weather": "雨　夜　くもり　所により　昼前　から　夕方　雷　を伴う",
-      "precipitation_pct": 80,
-      "rain_risk": true,
+      "date": "2026-10-27",
+      "estimated_demand": 11886.4,
+      "weather": "くもり　時々　晴れ　夕方　一時　雨",
+      "precipitation_pct": 10,
+      "rain_risk": false,
       "is_estimated": true
     },
     {
-      "date": "2026-10-27",
-      "estimated_demand": 11859.2,
-      "weather": "くもり　夕方　一時　雨",
-      "precipitation_pct": 20,
-      "rain_risk": false,
+      "date": "2026-10-28",
+      "estimated_demand": 11181.7,
+      "weather": "くもり　明け方　一時　雨",
+      "precipitation_pct": 50,
+      "rain_risk": true,
       "is_estimated": true
     }
   ]
