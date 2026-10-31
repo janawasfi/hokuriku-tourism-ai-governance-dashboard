@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T00:55:27.086200Z",
+  "generated_at": "2026-10-31T00:41:45.840554Z",
   "summary": {
     "past_30_day": {
       "current_total": 228416,
@@ -15,18 +15,18 @@
   },
   "weather_strip": [
     {
-      "date": "2026-10-30",
-      "weather": "雨　夕方　から　時々　くもり　所により　昼前　から　雷　を伴う",
-      "wind": "南の風　日中　やや強く",
-      "precipitation_pct": 90,
+      "date": "2026-10-31",
+      "weather": "くもり　時々　雨　所により　夕方　まで　雷　を伴う",
+      "wind": "南の風　後　北西の風　海上　では　北西の風　やや強く",
+      "precipitation_pct": 50,
       "rain_risk": true
     },
     {
-      "date": "2026-10-31",
-      "weather": "くもり　時々　雨　所により　夕方　まで　雷　を伴う",
-      "wind": "南の風　後　北西の風　海上　では　西の風　やや強く",
-      "precipitation_pct": 40,
-      "rain_risk": true
+      "date": "2026-11-01",
+      "weather": "くもり　昼前　から　昼過ぎ　晴れ",
+      "wind": "南の風　海上　では　後　南西の風　やや強く",
+      "precipitation_pct": 20,
+      "rain_risk": false
     }
   ],
   "demand_forecast": [
@@ -448,11 +448,6 @@
   "nudges": [
     {
       "type": "weather",
-      "date": "2026-10-30",
-      "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
-    },
-    {
-      "type": "weather",
       "date": "2026-10-31",
       "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
     },
@@ -465,19 +460,19 @@
   "weather_data_is_stale": true,
   "estimated_outlook": [
     {
-      "date": "2026-10-30",
-      "estimated_demand": 13016.2,
-      "weather": "雨　夕方　から　時々　くもり　所により　昼前　から　雷　を伴う",
-      "precipitation_pct": 90,
+      "date": "2026-10-31",
+      "estimated_demand": 13179.2,
+      "weather": "くもり　時々　雨　所により　夕方　まで　雷　を伴う",
+      "precipitation_pct": 50,
       "rain_risk": true,
       "is_estimated": true
     },
     {
-      "date": "2026-10-31",
-      "estimated_demand": 13555.7,
-      "weather": "くもり　時々　雨　所により　夕方　まで　雷　を伴う",
-      "precipitation_pct": 40,
-      "rain_risk": true,
+      "date": "2026-11-01",
+      "estimated_demand": 14246.5,
+      "weather": "くもり　昼前　から　昼過ぎ　晴れ",
+      "precipitation_pct": 20,
+      "rain_risk": false,
       "is_estimated": true
     }
   ]
