@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T00:41:45.840554Z",
+  "generated_at": "2026-11-01T00:18:02.228185Z",
   "summary": {
     "past_30_day": {
       "current_total": 228416,
@@ -15,17 +15,17 @@
   },
   "weather_strip": [
     {
-      "date": "2026-10-31",
-      "weather": "くもり　時々　雨　所により　夕方　まで　雷　を伴う",
-      "wind": "南の風　後　北西の風　海上　では　北西の風　やや強く",
-      "precipitation_pct": 50,
-      "rain_risk": true
+      "date": "2026-11-01",
+      "weather": "晴れ　昼過ぎ　から　くもり　所により　昼前　まで　霧",
+      "wind": "南の風　海上　では　後　南西の風　やや強く",
+      "precipitation_pct": 0,
+      "rain_risk": false
     },
     {
-      "date": "2026-11-01",
-      "weather": "くもり　昼前　から　昼過ぎ　晴れ",
-      "wind": "南の風　海上　では　後　南西の風　やや強く",
-      "precipitation_pct": 20,
+      "date": "2026-11-02",
+      "weather": "くもり　朝　から　昼過ぎ　雨",
+      "wind": "南の風　後　北の風　海上　では　北西の風　やや強く",
+      "precipitation_pct": 30,
       "rain_risk": false
     }
   ],
@@ -447,11 +447,6 @@
   ],
   "nudges": [
     {
-      "type": "weather",
-      "date": "2026-10-31",
-      "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
-    },
-    {
       "type": "demand",
       "date": "2026-03-05",
       "message": "Very high demand — raise rates and enable on-site upsell offers."
@@ -460,18 +455,18 @@
   "weather_data_is_stale": true,
   "estimated_outlook": [
     {
-      "date": "2026-10-31",
-      "estimated_demand": 13179.2,
-      "weather": "くもり　時々　雨　所により　夕方　まで　雷　を伴う",
-      "precipitation_pct": 50,
-      "rain_risk": true,
+      "date": "2026-11-01",
+      "estimated_demand": 14246.2,
+      "weather": "晴れ　昼過ぎ　から　くもり　所により　昼前　まで　霧",
+      "precipitation_pct": 0,
+      "rain_risk": false,
       "is_estimated": true
     },
     {
-      "date": "2026-11-01",
-      "estimated_demand": 14246.5,
-      "weather": "くもり　昼前　から　昼過ぎ　晴れ",
-      "precipitation_pct": 20,
+      "date": "2026-11-02",
+      "estimated_demand": 13351.2,
+      "weather": "くもり　朝　から　昼過ぎ　雨",
+      "precipitation_pct": 30,
       "rain_risk": false,
       "is_estimated": true
     }
