@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T00:18:02.228185Z",
+  "generated_at": "2026-11-02T00:34:51.426974Z",
   "summary": {
     "past_30_day": {
       "current_total": 228416,
@@ -15,18 +15,18 @@
   },
   "weather_strip": [
     {
-      "date": "2026-11-01",
-      "weather": "晴れ　昼過ぎ　から　くもり　所により　昼前　まで　霧",
-      "wind": "南の風　海上　では　後　南西の風　やや強く",
-      "precipitation_pct": 0,
-      "rain_risk": false
+      "date": "2026-11-02",
+      "weather": "雨　夕方　から　時々　くもり",
+      "wind": "南の風　後　北の風　海上　では　北の風　やや強く",
+      "precipitation_pct": 90,
+      "rain_risk": true
     },
     {
-      "date": "2026-11-02",
-      "weather": "くもり　朝　から　昼過ぎ　雨",
-      "wind": "南の風　後　北の風　海上　では　北西の風　やや強く",
-      "precipitation_pct": 30,
-      "rain_risk": false
+      "date": "2026-11-03",
+      "weather": "くもり　昼過ぎ　から　時々　晴れ　所により　朝　まで　雨",
+      "wind": "北の風　海上　では　北の風　やや強く",
+      "precipitation_pct": 40,
+      "rain_risk": true
     }
   ],
   "demand_forecast": [
@@ -447,6 +447,16 @@
   ],
   "nudges": [
     {
+      "type": "weather",
+      "date": "2026-11-02",
+      "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
+    },
+    {
+      "type": "weather",
+      "date": "2026-11-03",
+      "message": "High rain probability — activate the indoor-activity plan and notify guests in advance."
+    },
+    {
       "type": "demand",
       "date": "2026-03-05",
       "message": "Very high demand — raise rates and enable on-site upsell offers."
@@ -455,19 +465,19 @@
   "weather_data_is_stale": true,
   "estimated_outlook": [
     {
-      "date": "2026-11-01",
-      "estimated_demand": 14246.2,
-      "weather": "晴れ　昼過ぎ　から　くもり　所により　昼前　まで　霧",
-      "precipitation_pct": 0,
-      "rain_risk": false,
+      "date": "2026-11-02",
+      "estimated_demand": 12475.4,
+      "weather": "雨　夕方　から　時々　くもり",
+      "precipitation_pct": 90,
+      "rain_risk": true,
       "is_estimated": true
     },
     {
-      "date": "2026-11-02",
-      "estimated_demand": 13351.2,
-      "weather": "くもり　朝　から　昼過ぎ　雨",
-      "precipitation_pct": 30,
-      "rain_risk": false,
+      "date": "2026-11-03",
+      "estimated_demand": 13340.2,
+      "weather": "くもり　昼過ぎ　から　時々　晴れ　所により　朝　まで　雨",
+      "precipitation_pct": 40,
+      "rain_risk": true,
       "is_estimated": true
     }
   ]
